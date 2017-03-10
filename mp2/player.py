@@ -20,3 +20,10 @@ class Player(object):
 		
 	def draw_a_card(self, card):
 		self.hand.append(card)
+
+	def is_empty_hand(self):
+		return len(self.hand) == 0
+
+	def show_hand(self):
+		for card in self.hand:
+			print(card)

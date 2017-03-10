@@ -1,15 +1,17 @@
+from card import Card
+
 class Deck(object):
 	
-	"""A class to represent a Deck"""
-	def __init__(self, cards, ace_as_eleven = False):
+	"""A class to represent a Deck of cards"""
+	def __init__(self, ace_as_eleven = False):
 		
 		self.ace_as_eleven = ace_as_eleven
-		self.cards = generate_deck()
+		self.cards = self.generate_deck()
 		self.removed_cards = []
 
 	def generate_deck(self):
-
-		suits = ["hearts", "spades","diamonds" "clubs"]
+		"""It generates a deck of 52 cards"""
+		suits = ["hearts", "spades","diamonds","clubs"]
 		cards = []
 
 		for suit in suits:
@@ -58,15 +60,15 @@ class Deck(object):
 		return cards
 
 	def get_from_top(self):
+		'''It gets one card from the top of the deck'''
 		card = self.cards.pop()
 		self.removed_cards.append(card)
 		return card
 
 	def remove_card(self, card):
+		'''It removes one specific card from the deck'''
 		for c in self.cards:
 			if card.name == c.name and card.suit == c.suit:
-				self.cards.remove(c):
+				self.cards.remove(c)
 				self.removed_cards.append(c)
 				return c
-
-

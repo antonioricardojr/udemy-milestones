@@ -1,9 +1,11 @@
+from deck import *
+
 class Dealer(object):
 	"""docstring for Dealer"""
-	def __init__(self, deck = Deck(), ):
+	def __init__(self ):
 		super(Dealer, self).__init__()
-		self.deck = deck
-		self.hand = hand
+		self.deck = Deck()
+		self.hand = []
 
 	def deck_shuffle():
 		pass
@@ -11,7 +13,7 @@ class Dealer(object):
 	def two_cards(self,is_for_dealer=False):
 		resp = []
 
-		if !is_for_dealer:
+		if not is_for_dealer:
 			resp.append(self.deck.get_from_top())
 			resp.append(self.deck.get_from_top())
 		else:
