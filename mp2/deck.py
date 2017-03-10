@@ -61,9 +61,12 @@ class Deck(object):
 
 	def get_from_top(self):
 		'''It gets one card from the top of the deck'''
-		card = self.cards.pop()
-		self.removed_cards.append(card)
-		return card
+		try:
+			card = self.cards.pop()
+			self.removed_cards.append(card)
+			return card
+		except:
+			print("There is no cards!")
 
 	def remove_card(self, card):
 		'''It removes one specific card from the deck'''
