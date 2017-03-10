@@ -40,8 +40,8 @@ how to play:
 		print(player.show_hand())
 		print(player.is_empty_hand())
 		blackjack.hit(player, dealer)
-
 		print(player.show_hand())
+		print(player.is_empty_hand())
 
 
 if __name__ == '__main__':
