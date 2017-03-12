@@ -17,6 +17,13 @@ class Player(object):
 			self.bet += value
 		else:
 			print("You don't have enough money!")
+
+	def make_double(self):
+		double = 2 * self.bet
+		if double <= self.bankroll:
+			self.bet = double
+		else:
+			print("You don't have enough money!")
 		
 	def draw_a_card(self, card):
 		self.hand.append(card)
@@ -38,4 +45,4 @@ class Player(object):
 			resp += card.value
 
 		return resp
-					
+

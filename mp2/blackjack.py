@@ -2,16 +2,13 @@ from player import Player
 from dealer import Dealer
 
 class Blackjack(object):
-	"""docstring for Blackjack"""
-
-	# def __init__(self):
 
 	def hit(self, player, dealer):
 		card = dealer.give_a_card()
 		player.draw_a_card(card)
 
 	def double(self, player, dealer):
-		player.make_bet(2*player.bet)
+		player.make_double()
 		self.hit(player, dealer)
 
 	def has_winner(self, player, dealer):
@@ -62,6 +59,7 @@ how to play:
 		player = Player()
 		dealer = Dealer()
 		dealer.deck_shuffle()
+		player.make_bet(10)
 
 		while not self.has_winner(player, dealer):
 			option = self.choose_option()
