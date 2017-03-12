@@ -4,17 +4,30 @@ from dealer import Dealer
 class Blackjack(object):
 	"""docstring for Blackjack"""
 
-	def __init__(self):
-		self.has_winner = False
+	# def __init__(self):
 
 	def hit(self, player, dealer):
 		card = dealer.give_a_card()
 		player.draw_a_card(card)
 
-	def double(self, player):
-		player.make_bet(2*self.player.bet)
-		self.hit(player)
+	def double(self, player, dealer):
+		player.make_bet(2*player.bet)
+		self.hit(player, dealer)
 
+	def has_winner(self, player, dealer):
+		if player.hand_points() < 21 and dealer.hand_points() < 21:
+			return False
+		elif player.hand_points() == 21: # the player won
+			return True
+		elif dealer.hand_points() == 21: # the dealer wins.
+			return True
+		elif player.hand_points() > 21: # the player lose.
+			print("The player lose")
+			return True
+		elif dealer.hand_points() > 21: # the player wins.
+			return True
+		else:
+			return False
 
 	def split(self, player):
 		pass
@@ -41,8 +54,6 @@ how to play:
 		option = input("option?")
 		return option
 
-
-
 	def run(self):
 
 		blackjack = Blackjack()
@@ -50,13 +61,14 @@ how to play:
 
 		player = Player()
 		dealer = Dealer()
+		dealer.deck_shuffle()
 
-		while not self.has_winner:
+		while not self.has_winner(player, dealer):
 			option = self.choose_option()
 			if option == 1:
 				self.hit(player, dealer)
 			elif option == 2:
-				self.double(player)
+				self.double(player, dealer)
 			elif option == 3:
 				pass
 			else:

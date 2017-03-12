@@ -1,4 +1,5 @@
 from card import Card
+from random import shuffle
 
 class Deck(object):
 	
@@ -75,3 +76,6 @@ class Deck(object):
 				self.cards.remove(c)
 				self.removed_cards.append(c)
 				return c
+
+	def shuffle():
+		return shuffle(self.cards)

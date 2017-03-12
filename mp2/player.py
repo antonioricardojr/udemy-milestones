@@ -25,5 +25,17 @@ class Player(object):
 		return len(self.hand) == 0
 
 	def show_hand(self):
+		print("---player's hand---")
 		for card in self.hand:
 			print(card)
+		print("total points: {points}".format(points = self.hand_points()))
+		print("bet: {bet}".format(bet = self.bet))
+		print("bankroll: {bankroll}".format(bankroll = self.bankroll))
+
+	def hand_points(self):
+		resp = 0
+		for card in self.hand:
+			resp += card.value
+
+		return resp
+					

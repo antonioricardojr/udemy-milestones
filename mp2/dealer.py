@@ -1,4 +1,6 @@
+import random
 from deck import *
+
 
 class Dealer(object):
 	"""docstring for Dealer"""
@@ -7,8 +9,8 @@ class Dealer(object):
 		self.deck = Deck()
 		self.hand = []
 
-	def deck_shuffle():
-		pass
+	def deck_shuffle(self):
+		self.deck.cards = random.sample(self.deck.cards, len(self.deck.cards))
 
 	def two_cards(self,is_for_dealer=False):
 		resp = []
@@ -24,4 +26,10 @@ class Dealer(object):
 
 	def give_a_card(self):
 		return self.deck.get_from_top()
+
+	def hand_points(self):
+		resp = 0
+		for card in self.hand:
+			resp += card.value
+		return resp
 		
