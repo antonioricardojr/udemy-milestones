@@ -10,6 +10,15 @@ class Deck(object):
 		self.cards = self.generate_deck()
 		self.removed_cards = []
 
+	def get_cards(self):
+		return self.cards
+
+	def set_cards(self, new_cards):
+		self.cards = new_cards
+
+	def get_removed_cards(self):
+		return self.removed_cards
+
 	def generate_deck(self):
 		"""It generates a deck of 52 cards"""
 		suits = ["hearts", "spades","diamonds","clubs"]
@@ -69,13 +78,3 @@ class Deck(object):
 		except:
 			print("There is no cards!")
 
-	def remove_card(self, card):
-		'''It removes one specific card from the deck'''
-		for c in self.cards:
-			if card.name == c.name and card.suit == c.suit:
-				self.cards.remove(c)
-				self.removed_cards.append(c)
-				return c
-
-	def shuffle():
-		return shuffle(self.cards)
